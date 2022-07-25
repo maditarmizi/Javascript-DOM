@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dom Traversal</title>
+  <style>
+    body {
+    margin: 50px;
+    font-family: arial;
+    background-color: #666;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+}
+
+.card {
+    display: inline-block;
+    width: 220px;
+    padding: 0 80px;
+    height: 80px;
+    font-size: 16px;
+    line-height: 80px;
+    border-radius: 40px;
+    background-color: #f1f1f1;
+    margin: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.card img {
+    float: left;
+    margin: 0 10px 0 -80px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    position: relative;
+}
+.card a {
+  text-decoration: none;
+}
+.card .nama, .card .telp {
+    display: block;
+    line-height: 20px;
+    padding: 0 5px;
+}
+
+.card .nama {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.card .telp {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #aaa;
+}
+
+.card .close {
+    font-size: 24px;
+    font-weight: bold;
+    color: #999;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    cursor: pointer;
+}
+
+.card:hover .close {
+    color: red;
+}
+
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    
+    <div class="card">
+      <img src="img/adi.jpg" alt="adi" width="96" height="96">
+      <span class="nama">M Adi Tarmizi</span>
+      <span class="telp">083848597807</span>
+      <span class="close">x</span>
+    </div>
+    <div class="card">
+      <img src="img/adi.jpg" alt="adi" width="96" height="96">
+      <span class="nama">M Adi Tarmizi</span>
+      <span class="telp">083848597807</span>
+      <span class="close">x</span>
+    </div>
+    <div class="card">
+      <img src="img/adi.jpg" alt="adi" width="96" height="96">
+      <span class="nama">M Adi Tarmizi</span>
+      <span class="telp">083848597807</span>
+      <span class="close">x</span>
+    </div>
+    <div class="card">
+      <img src="img/adi.jpg" alt="adi" width="96" height="96">
+      <span class="nama">M Adi Tarmizi</span>
+      <span class="telp">083848597807</span>
+      <span class="close">x</span>
+    </div>
+    
+  </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  <script>
+    // Event Handling
+    /*const close = document.querySelector('.close');
+    const card = document.querySelector('.card');
+    // eksekusi
+    close.addEventListener('click', function() {
+      card.style.display = 'none';
+    });*/
+    
+    
+    // DOM Traversal
+    /*const x = document.querySelectorAll('.close');*/
+    
+    // looping
+    /*for( let i = 0; i < x.length; i++ ) {
+      x[i].addEventListener('click', function(e) {
+        // x[i].parentElement.style.display = 'none';
+        // console.log(e.target);
+        e.target.parentElement.style.display = 'none';
+      });
+    }*/
+    
+    // cara lain / simpel
+    // tombol close dipencet
+    /*x.forEach(function(event) {
+      event.addEventListener('click', function(e) {
+        e.target.parentElement.style.display = 'none';
+        
+        // prevent Default / cegah aksi default
+        e.preventDefault();
+        // method event bubbling
+        e.stopPropagation();
+      });
+    });
+    
+    // Event Bubbling
+    // tombol cardnya dipencet
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        alert('ok');
+      });
+    });*/
+    
+    
+    // penerapan DOM Traversal Method
+    /*const nama = document.querySelector('.nama');
+    console.log(nama.previousElementSibling);*/
+    
+    
+    // meringkas kodingan menggunakan event bubbling
+    const container = document.querySelector('.container');
+    container.addEventListener('click', function(e) {
+      if( e.target.className == 'close' ) {
+        e.target.parentElement.style.display = 'none';
+        e.preventDefault();
+      }
+    })
+    
+    
+  </script>
+</body>
+</html>

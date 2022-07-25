@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>img Galery</title>
+  <style>
+    * {
+      margin: 0;
+      padding 0;
+      line-height: 0;
+    }
+    body {
+      background-color: #ccc;
+      text-align: center;
+    }
+    .container {
+      width: 600px;
+      margin: 10px auto;
+      border: 5px solid white;
+      overflow: auto;
+    }
+    .container .jumbo {
+      width: 600px;
+    }
+    .thumb {
+      width: 200px;
+      float: left;
+      border: 2px solid white;
+      box-sizing: border-box;
+    }
+    .thumb:hover {
+      opacity: 0.5;
+      cursor: pointer;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    .fade {
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+    .active {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <img src="img/5.jpg" class="jumbo">
+    <div class="thumbnail">
+      <img src="img/orang.png" class="thumb">
+      <img src="img/gajah.png" class="thumb">
+      <img src="img/semut.png" class="thumb">
+      <img src="img/adi.jpg" class="thumb">
+      <img src="img/orang.png" class="thumb">
+      <img src="img/adi.jpg" class="thumb">
+    </div>
+  </div>
+  
+  <script>
+    const container = document.querySelector('.container');
+    const jumbo = document.querySelector('.jumbo');
+    const thumbs = document.querySelectorAll('thumb');
+    
+    container.addEventListener('click', function(e) {
+      
+      // cek apakah yang di klik adalah thumb
+      if( e.target.className = 'thumb' ) {
+        jumbo.src = e.target.src;
+        jumbo.classList.add('fade');
+        
+        setTimeout(function() {
+          jumbo.classList.remove('fade');
+        }, 500);
+        
+        /*thumbs.forEach(function(gambar) {
+          if( gambar.classList.contains('active') ) {
+            gambar.classList.remove('.active');
+          }
+        })*/
+        gambar.className = 'thumb';
+        
+        e.target.classList.add('active');
+      }
+      
+    });
+  </script>
+</body>
+</html>
